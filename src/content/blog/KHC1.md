@@ -1,6 +1,6 @@
 ---
 author: Krishna Chaitanya
-pubDatetime: 2022-01-02T10:22:00
+pubDatetime: 2022-01-08T10:22:00
 title:  My First Crypto Mining Attempt on a MacBook Air M1 – A Wild Ride into Blockchain
 slug: Crypto-1
 featured: true

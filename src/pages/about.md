@@ -3,11 +3,11 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-Hello! I'm Krishna Chaitanya, a passionate and dedicated computer science enthusiast currently in my 4th year of B.Tech. at Sv Colleges, Tirupati. My journey in the world of technology began early, fueled by a deep interest in programming, cybersecurity, and networking. I have completed the prestigious CS50 in Cyber Security from Harvard University, which significantly broadened my understanding of the field.	</p>
+ I'm Krishna Chaitanya, a passionate and dedicated computer science enthusiast currently in my 4th year of B.Tech. at Sv Colleges, Tirupati. My journey in the world of technology began early, fueled by a deep interest in programming, cybersecurity, and networking. I have completed the prestigious CS50 in Cyber Security from Harvard University, which significantly broadened my understanding of the field.	</p>
 
 <!--[my personal blog](https://krishnablogs.netlify.app).-->
 
-I have a diverse skill set that includes Python programming, networking, and hardware components. My experience extends to working on various projects, including creating a voting website using Flask and HTML, developing a Python program for converting variable names from camel case to snake case, and working on a software tool called 'Snakes Hash Identifier' for identifying different types of encryption hashes.
+I have a diverse skill set that includes Python programming, networking, and hardware components. My experience extends to working on varioHello!us projects, including creating a voting website using Flask and HTML, developing a Python program for converting variable names from camel case to snake case, and working on a software tool called 'Snakes Hash Identifier' for identifying different types of encryption hashes.
 
 As a high school sophomore, I was already deeply involved in gaming, which has evolved into a broader interest in technology and security. I’m also a part of the '100 Days of Code in Python' Udemy course community, where I continue to hone my skills and challenge myself with advanced programming tasks.
 
