@@ -1,13 +1,16 @@
 ---
 author: Krishna Chaitanya
-pubDatetime: 2022-05-15T15:22:00Z
-modDatetime: 2022-05-16T09:12:47.400Z
+pubDatetime: 2022-05-14T15:22:00Z
 title: Understanding Ransomware and a Dive into Snakes Ransomware
 slug: Understanding-Ransomware-and-a-Dive-into-Snakes-Ransomware
 featured: true
 draft: false
 tags:
   - docs
+  - ransomware
+  - project
+  - cyberattack
+  - snakes ransomware
 description:
   Snakes Ransomware is a Python-based tool I’ve developed to demonstrate the encryption and decryption processes involved in ransomware. While this project is intended purely for educational purposes, it highlights the mechanics of ransomware in a controlled environment.
 ---
@@ -183,7 +186,7 @@ Ransomware remains one of the most significant threats in cybersecurity today. B
 For more insights into cybersecurity and programming, stay tuned to Krishna-Blogs!
 
 ---
-[Github Repo](https://cs50.harvard.edu/python/2024/) -- For referance
+[Github Repo](https://github.com/Snakes-n-Networks/Snakes-Ransomware.git) -- For referance
 
-Contact: ekrishnachaitanya2004@gmail.com 'or'
-        snakesnnetworks@gmail.com
+Contact: [P-mail](mailto:ekrishnachaitanya2004@gmail.com) 'or'
+        [Official-mail](mailto:snakesnnetworks@gmail.com)
