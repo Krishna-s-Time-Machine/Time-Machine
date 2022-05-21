@@ -8,7 +8,7 @@ draft: false
 tags:
   - docs
 description:
-  Snakes Ransomware is a Python-based tool I’ve developed to demonstrate the encryption and decryption processes involved in ransomware. While this project is intended purely for educational purposes, it highlights the mechanics of ransomware in a controlled environment.
+  This ain’t just a write-up; it’s my journey—an exploration into the ruthless world of ransomware, the lessons I learned, the shocking truths I uncovered, and the very reason Snakes Ransomware became my project. From real-world cyber disasters to my own hands-on analysis, this is a story I won’t forget.
 ---
 
 I still remember the moment I first started diving into the world of ransomware. It wasn’t just another cybersecurity concept or a weekend project—it was a rabbit hole that kept pulling me deeper. I had read about it before, knew the basics, but the more I explored, the more unsettling it became. This wasn’t just some theoretical malware; this was an entire economy, a digital form of extortion that had taken down massive corporations, crippled hospitals, and even put governments on their knees.
