@@ -7,7 +7,7 @@ featured: false
 draft: false
 tags:
   - KHC
-  - dream
+  - dreams
   - harshi
   - MGM
   - school
