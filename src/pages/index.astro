@@ -122,8 +122,29 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </svg>
       </LinkButton>
     </div>
-  </main>
 
+    <audio id="bg-music" loop autoplay>
+  <source src="public/assets/SpotiDownloader.com - The Weeknd's Dark Secret - American Dad! Cast.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("bg-music");
+    
+    if (audio) {
+      audio.volume = 0.05; // Adjust volume (0.0 to 1.0)
+      
+      // Play only when the user interacts (to bypass autoplay restrictions)
+      document.body.addEventListener("click", function () {
+        if (audio.paused) {
+          audio.play();
+        }
+      }, { once: true }); // Only trigger once
+    }
+  });
+</script>
+
+  </main>
   <Footer />
 </Layout>
 
