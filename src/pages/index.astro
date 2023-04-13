@@ -11,11 +11,9 @@ import getSortedPosts from "@utils/getSortedPosts";
 import { SITE, SOCIALS } from "@config";
 
 const posts = await getCollection("blog");
-
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
-
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
@@ -24,23 +22,14 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <main id="main-content">
     <section id="hero">
       <h1>Krishna Chaitanya</h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
+      <a target="_blank" href="/rss.xml" class="rss-link" aria-label="rss feed" title="RSS Feed">
+        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon">
+          <path d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"></path>
+          <path d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"></path>
+          <circle cx="6" cy="18" r="2"></circle>
         </svg>
         <span class="sr-only">RSS Feed</span>
       </a>
-
       <p>
         Ahh shit, here we go again. Back to dumping all the madness you can’t say out loud. You wrote this because, for some reason, your brain thought it was important at the time. Maybe it was. Maybe it’s just another late-night overthinking session that got too real.
       </p>
@@ -59,97 +48,77 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         EKHC
         </LinkButton>
       </p>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
+
+      {socialCount > 0 && (
+        <div class="social-wrapper">
+          <div class="social-links">Social Links:</div>
+          <Socials />
+        </div>
+      )}
     </section>
-
     <Hr />
-
-    {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured</h2>
-            <ul>
-              {featuredPosts.map(({ data, slug }) => (
-                <Card
-                  href={`/posts/${slug}/`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              ))}
-            </ul>
-          </section>
-          {recentPosts.length > 0 && <Hr />}
-        </>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts">
-          <h2>Recent Posts</h2>
+    {featuredPosts.length > 0 && (
+      <>
+        <section id="featured">
+          <h2>Featured</h2>
           <ul>
-            {recentPosts.map(
-              ({ data, slug }, index) =>
-                index < SITE.postPerIndex && (
-                  <Card
-                    href={`/posts/${slug}/`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                )
-            )}
+            {featuredPosts.map(({ data, slug }) => (
+              <Card href={`/posts/${slug}/`} frontmatter={data} secHeading={false} />
+            ))}
           </ul>
         </section>
-      )
-    }
-
+        {recentPosts.length > 0 && <Hr />}
+      </>
+    )}
+    {recentPosts.length > 0 && (
+      <section id="recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+          {recentPosts.map(({ data, slug }, index) =>
+            index < SITE.postPerIndex && (
+              <Card href={`/posts/${slug}/`} frontmatter={data} secHeading={false} />
+            )
+          )}
+        </ul>
+      </section>
+    )}
     <div class="all-posts-btn-wrapper">
       <LinkButton href="/posts/">
         All Posts
-        <svg xmlns="http://www.w3.org/2000/svg"
-          ><path
-            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-          ></path>
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
         </svg>
       </LinkButton>
     </div>
-
-    <audio id="bg-music" loop autoplay>
-  <source src="public/assets/SpotiDownloader.com - The Weeknd's Dark Secret - American Dad! Cast.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const audio = document.getElementById("bg-music");
-    
-    if (audio) {
-      audio.volume = 0.05; // Adjust volume (0.0 to 1.0)
-      
-      // Play only when the user interacts (to bypass autoplay restrictions)
-      document.body.addEventListener("click", function () {
-        if (audio.paused) {
-          audio.play();
+    <audio id="bg-music" loop>
+      <source src="/assets/SpotiDownloader.com - The Weeknd's Dark Secret - American Dad! Cast.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("bg-music");
+        if (audio) {
+          audio.volume = 0.05;
+          audio.addEventListener("canplaythrough", () => {
+            console.log("Audio is ready.");
+          });
+          function playAudio() {
+            if (audio.paused) {
+              audio.play().then(() => {
+                console.log("Audio started.");
+              }).catch(error => {
+                console.log("Autoplay blocked:", error);
+              });
+            }
+          }
+          document.body.addEventListener("click", playAudio, { once: true });
         }
-      }, { once: true }); // Only trigger once
-    }
-  });
-</script>
-
+      });
+    </script>
   </main>
   <Footer />
 </Layout>
 
 <style>
-  /* ===== Hero Section ===== */
   #hero {
     @apply pb-6 pt-8;
   }
@@ -171,14 +140,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   .social-links {
     @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
   }
-
-  /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
-  #recent-posts {
+  #featured, #recent-posts {
     @apply pb-6 pt-12;
   }
-  #featured h2,
-  #recent-posts h2 {
+  #featured h2, #recent-posts h2 {
     @apply text-2xl font-semibold tracking-wide;
   }
   .all-posts-btn-wrapper {
