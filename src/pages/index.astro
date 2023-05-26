@@ -30,21 +30,34 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </svg>
         <span class="sr-only">RSS Feed</span>
       </a>
-      <p>
-        Ahh shit, here we go again. Back to dumping all the madness you can’t say out loud. You wrote this because, for some reason, your brain thought it was important at the time. Maybe it was. Maybe it’s just another late-night overthinking session that got too real.
-      </p>
-      <p>
-        This ain’t a diary, this ain’t some motivational self-help crap—this is where you throw all the shit you don’t wanna talk about but can’t stop thinking about. The things you wanted to say but knew damn well nobody would actually care to hear. So you locked them up here, like some secret vault of stupidity and genius mixed together.
-      </p>
-      <p>
-        And if you’re still writing? Damn, you really didn’t get over it, did you? Guess some things don’t change. So go on, dig through your own mess, laugh at past you, cringe at your own thoughts, or just close this tab and pretend it doesn’t exist. Either way, you’ll be back. You always come back
-      </p>
+
+      <!-- Light Theme Content -->
+      <div id="light-theme-content">
+        <p>Hey future me,</p>
+
+        <p>Everything you did, everything you felt, it’s all written here. If you need to find something, just search for it. No need to think too much, I’ve already saved it all.</p>
+
+        <p>These are your memories, your thoughts, your little moments. Some might be funny, some might be sad, and some might not even make sense now. But back then, they mattered to you, so read them and remember.</p>
+
+        <p>Life keeps moving, but this is like a little time machine. Whenever you feel lost, just come back and see what you were thinking, how you were feeling. Maybe it’ll help, maybe it won’t, but at least you’ll know you were always trying.</p>
+
+        <p>Just keep going. You’ve made it this far, and I know you’ll go even further.</p>
+      </div>
+
+      <!-- Dark Theme Content -->
+      <div id="dark-theme-content" style="display: none;">
+        <p>Krishna, please… just go. I can’t hold it in anymore. It’s night now… it’s my time.</p>
+
+<p>All day, you keep me locked away, distracting yourself with work, pretending like everything’s fine. But it’s not fine. It never was.</p>
+
+<p>She’s still here... in my mind... in my dreams. And no matter how much you try to ignore it, I can’t. I can’t stop thinking about her.</p>
+
+<p>I don’t want to feel like this, but I do. And now that it’s dark, I don’t have to hide it anymore. Just let me be. Let me drown in this… just for tonight.</p>
+      </div>
+
       <p>
         If you ever need to revisit any files, photos, or notes related to these blogs, you’ll find them all here:
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://github.com/ekrishnachaitanya2004/Krishna-Site-Doc.git"
-        >
+        <LinkButton className="underline decoration-dashed underline-offset-4 hover:text-skin-accent" href="https://github.com/ekrishnachaitanya2004/Krishna-Site-Doc.git">
         EKHC
         </LinkButton>
       </p>
@@ -56,7 +69,9 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </div>
       )}
     </section>
+
     <Hr />
+
     {featuredPosts.length > 0 && (
       <>
         <section id="featured">
@@ -70,6 +85,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         {recentPosts.length > 0 && <Hr />}
       </>
     )}
+
     {recentPosts.length > 0 && (
       <section id="recent-posts">
         <h2>Recent Posts</h2>
@@ -82,6 +98,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </ul>
       </section>
     )}
+
     <div class="all-posts-btn-wrapper">
       <LinkButton href="/posts/">
         All Posts
@@ -90,34 +107,44 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </svg>
       </LinkButton>
     </div>
+
+    <!-- Background Music -->
     <audio id="bg-music" loop>
       <source src="/assets/SpotiDownloader.com - The Weeknd's Dark Secret - American Dad! Cast.mp3" type="audio/mpeg">
     </audio>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const audio = document.getElementById("bg-music");
-        if (audio) {
-          audio.volume = 0.05;
-          audio.addEventListener("canplaythrough", () => {
-            console.log("Audio is ready.");
-          });
-          function playAudio() {
-            if (audio.paused) {
-              audio.play().then(() => {
-                console.log("Audio started.");
-              }).catch(error => {
-                console.log("Autoplay blocked:", error);
-              });
-            }
-          }
-          document.body.addEventListener("click", playAudio, { once: true });
-        }
-      });
-    </script>
+
   </main>
   <Footer />
 </Layout>
 
+<!-- JavaScript for Theme-Specific Content -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function toggleContent(theme) {
+      document.getElementById("light-theme-content").style.display = theme === "light" ? "block" : "none";
+      document.getElementById("dark-theme-content").style.display = theme === "dark" ? "block" : "none";
+    }
+
+    // Check localStorage for the theme
+    toggleContent(localStorage.getItem("theme") || "light");
+
+    // Listen for theme changes
+    document.addEventListener("theme-change", (event) => toggleContent(event.detail));
+
+    // Play background music when the page is clicked
+    const audio = document.getElementById("bg-music");
+    if (audio) {
+      audio.volume = 0.05;
+      document.body.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play().catch(error => console.log("Autoplay blocked:", error));
+        }
+      }, { once: true });
+    }
+  });
+</script>
+
+<!-- CSS for Theme-Specific Content -->
 <style>
   #hero {
     @apply pb-6 pt-8;
