@@ -4,12 +4,20 @@ const primaryColorScheme = ""; // "light" | "dark"
 const currentTheme = localStorage.getItem("theme");
 
 function getPreferTheme() {
-  if (currentTheme) return currentTheme;
-  if (primaryColorScheme) return primaryColorScheme;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const now = new Date();
+  const hours = now.getHours();
+
+  // Auto-switch: Dark mode from 12 AM (00:00) to 5 AM (05:00)
+  if (hours >= 0 && hours < 5) {
+    return "dark";
+  }
+
+  // Otherwise, light mode
+  return "light";
 }
 
-let themeValue = getPreferTheme();
+// Use stored theme if available, otherwise determine based on time
+let themeValue = currentTheme || getPreferTheme();
 
 function setPreference() {
   localStorage.setItem("theme", themeValue);
@@ -22,6 +30,7 @@ function reflectPreference() {
   document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
 }
 
+// Apply the preferred theme on load
 reflectPreference();
 
 window.onload = () => {
@@ -37,6 +46,7 @@ window.onload = () => {
   document.addEventListener("astro:after-swap", setThemeFeature);
 };
 
+// Sync with system changes
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches: isDark }) => {
   themeValue = isDark ? "dark" : "light";
   setPreference();
