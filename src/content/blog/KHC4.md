@@ -1,7 +1,7 @@
 ---
 author: Krishna Chaitanya
 pubDatetime: 2023-04-08T08:55:00
-title:  Mining Dreams, Government Screams - The Great Indian Krypto Struggle 😆
+title:  Mining Dreams, Government Screams - The Great Indian Krypto Struggle
 slug: Crypto-4
 featured: true
 draft: false
