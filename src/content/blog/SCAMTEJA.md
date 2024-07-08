@@ -1,6 +1,7 @@
 ---
 author: Krishna Chaitanya
 pubDatetime: 2024-07-08T09:23:00
+modDatetime: 2024-07-08T10:11:34.400Z
 title: The Internship Scam - 1stop
 slug: SCAM-teja
 featured: true
