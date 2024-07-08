@@ -26,7 +26,7 @@ Later that evening, he called again. This time, I ignored it. But then my mom ca
 
 And then, he started the same nonsense from the morning.
 
-I told him straight up, "First of all, I have zero interest in this so-called job or internship. Second, don’t even call it an internship—it’s just a course with a certificate, not real experience. I’m studying for knowledge, not for some useless piece of paper. It’s a waste of time and money. And honestly, time is way more valuable."
+I told him straight up, "First of all, I have zero interest in this so-called job or internship. Second, don’t even call it an internship—it’s just a course with a certificate, not real experience. I’m studying to meet society’s expectations because, in the end, people value a degree on paper more than actual skills and worth."
 
 Then he finally told me the real reason.
 
@@ -60,7 +60,7 @@ After a day, he told me he had gotten more than 50 people to join just for her. 
 
 Finally, it's none of my business, so I don’t care about him or his relationship. I just hope I never fall for this trap again, even if it were for a close friend.
 
-Folder - [Scam Teja](https://github.com/ekrishnachaitanya2004/Krishna-Site-Doc/tree/main/SCAMTEJA])
+Folder - [Scam Teja](https://github.com/ekrishnachaitanya2004/Krishna-Site-Doc/tree/main/SCAMTEJA)
 
 
 
