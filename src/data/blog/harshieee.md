@@ -11,7 +11,7 @@ tags:
   - Masters
   - call
 description:
-  Ever had one of those moments where someone’s actions make zero sense? Yeah, this is one of those days. From random calls to ridiculous requests, to someone thinking they’re the boss of me—this experience was just ugh! Here’s why staying home is sometimes the best choice…
+  Yesterday, I got terminated from my TOEFL exam, and it left me questioning everything—should I really go for my master’s? Or is something telling me to stay back? I decided to call Harshi, hoping for clarity. But what happens when the one person you seek answers from doesn’t even pick up?
 ---
 
 So today, something weird happened. I decided to call Harshi. Yeah, yeah, I know… big deal, right? But listen—this was important!
