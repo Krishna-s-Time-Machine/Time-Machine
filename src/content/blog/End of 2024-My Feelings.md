@@ -2,7 +2,7 @@
 author: Krishna Chaitanya
 pubDatetime: 2024-12-28T14:56:00
 title: End of 2024 – My Feelings Now About Her
-slug: yearend2023
+slug: yearend2024
 featured: false
 draft: false
 tags:
