@@ -34,6 +34,6 @@ And we’ll keep listening.
 
 ![Screenshot](https://raw.githubusercontent.com/ekrishnachaitanya2004/Krishna-Site-Doc/refs/heads/main/THE_END_IS_NEAR/Screenshot%202024-12-31%20at%208.19.25%E2%80%AFPM.png)
 
-[Check out this tweet](https://twitter.com/Twitter/status/1234567890123456789)
+[Check out this tweet](https://x.com/ek020304net/status/1873930469370441758?s=61)
 
 
