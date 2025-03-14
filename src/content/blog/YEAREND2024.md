@@ -3,7 +3,7 @@ author: Krishna Chaitanya
 pubDatetime: 2025-01-04T21:54:00
 title: A Year’s End, A Sentimental Crisis, and an iPod Fix
 slug: IPod
-featured: true
+featured: false
 draft: false
 tags:
   - Ipod

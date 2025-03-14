@@ -4,7 +4,7 @@ pubDatetime: 2021-02-15T10:22:00Z
 modDatetime: 2021-02-16T09:11:34.400Z
 title: My Blog Tutorial
 slug: Krishna's blog
-featured: true
+featured: false
 draft: false
 tags:
   - Website

@@ -3,7 +3,7 @@ author: Krishna Chaitanya
 pubDatetime: 2022-08-20T23:42:00Z
 title: Loser Me – A Note to My Future Self
 slug: Loser-Me
-featured: true
+featured: false
 draft: false
 tags:
   - docs

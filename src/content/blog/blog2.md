@@ -4,7 +4,7 @@ pubDatetime: 2024-09-01T01:45:00Z
 modDatetime: 2024-09-02T09:11:34.400Z
 title: My Pytorch Learning Process
 slug: pytorch
-featured: true
+featured: false
 draft: false
 tags:
   - pytorch
