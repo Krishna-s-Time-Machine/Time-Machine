@@ -1,9 +1,9 @@
 ---
 author: Krishna Chaitanya
-pubDatetime: 2025-03-14T16:00:00
+pubDatetime: 2025-03-14T16:20:00
 title: See How Stupid I Am
 slug: Dream8-1
-featured: TRUE
+featured: False
 draft: false
 tags:
   - KHC
