@@ -34,25 +34,12 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <!-- Light Theme Content -->
       <div id="light-theme-content">
         <p>Hey future me,</p>
-
-        <p>Everything you did, everything you felt, it’s all written here. If you need to find something, just search for it. No need to think too much, I’ve already saved it all.</p>
-
-        <p>These are your memories, your thoughts, your little moments. Some might be funny, some might be sad, and some might not even make sense now. But back then, they mattered to you, so read them and remember.</p>
-
-        <p>Life keeps moving, but this is like a little time machine. Whenever you feel lost, just come back and see what you were thinking, how you were feeling. Maybe it’ll help, maybe it won’t, but at least you’ll know you were always trying.</p>
-
-        <p>Just keep going. You’ve made it this far, and I know you’ll go even further.</p>
+        <p>Everything you did, everything you felt, it’s all written here...</p>
       </div>
 
       <!-- Dark Theme Content -->
       <div id="dark-theme-content" style="display: none;">
         <p>Krishna, please… just go. I can’t hold it in anymore. It’s night now… it’s my time.</p>
-
-<p>All day, you keep me locked away, distracting yourself with work, pretending like everything’s fine. But it’s not fine. It never was.</p>
-
-<p>She’s still here... in my mind... in my dreams. And no matter how much you try to ignore it, I can’t. I can’t stop thinking about her.</p>
-
-<p>I don’t want to feel like this, but I do. And now that it’s dark, I don’t have to hide it anymore. Just let me be. Let me drown in this… just for tonight.</p>
       </div>
 
       <p>
@@ -108,11 +95,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </LinkButton>
     </div>
 
-    <!-- Background Music -->
-    <audio id="bg-music" loop>
-      <source src="/assets/SpotiDownloader.com - The Weeknd's Dark Secret - American Dad! Cast.mp3" type="audio/mpeg">
-    </audio>
-
   </main>
   <Footer />
 </Layout>
@@ -130,17 +112,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
     // Listen for theme changes
     document.addEventListener("theme-change", (event) => toggleContent(event.detail));
-
-    // Play background music when the page is clicked
-    const audio = document.getElementById("bg-music");
-    if (audio) {
-      audio.volume = 0.05;
-      document.body.addEventListener("click", () => {
-        if (audio.paused) {
-          audio.play().catch(error => console.log("Autoplay blocked:", error));
-        }
-      }, { once: true });
-    }
   });
 </script>
 
