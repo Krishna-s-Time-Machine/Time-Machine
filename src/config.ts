@@ -5,12 +5,12 @@ export const SITE: Site = {
   author: "Krishna Chaitanya Ethamukkala",
   profile: "https://ekrishnachaitanya2004.netlify.app/about/",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "Krishna",
+  title: "Time Machine",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
-  postPerIndex: 4,
+  postPerIndex: 5,
   postPerPage: 5,
-  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
+  scheduledPostMargin: 1 * 60 * 1000, // 1 minutes
 };
 
 export const LOCALE = {
