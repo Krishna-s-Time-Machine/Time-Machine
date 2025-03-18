@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@import "./typography.css";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+:root,
+html[data-theme="light"] {
+  --background: #1e1e1e; /* Keeping the dark background */
+  --foreground: #dcdcdc; /* Soft light grey text */
+  --accent: #4caf50; /* Shady Green */
+  --muted: #414141; /* Dark muted */
+  --border: #505050; /* Softer contrast borders */
+  --heading: #4caf50; /* Green for headings */
+}
+
+html[data-theme="dark"] {
+  --background: #1e1e1e; /* Dark background */
+  --foreground: #eaeaea; /* Light grey text */
+  --accent: #ffa500; /* Warm orange */
+  --muted: #464646; /* Muted elements */
+  --border: #646464; /* Border color */
+  --heading: #eaeaea; /* Light grey for headings */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-accent/75;
+    scrollbar-width: auto;
+    scrollbar-color: var(--color-muted) transparent;
+  }
+  html {
+    @apply overflow-y-scroll scroll-smooth;
+  }
+  body {
+    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
+  }
+  a,
+  button {
+    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  section,
+  footer {
+    @apply mx-auto max-w-3xl px-4;
+  }
+
+  /* ✅ Apply Shady Green to Headings in Light Mode */
+  html[data-theme="light"] h1,
+  html[data-theme="light"] h2,
+  html[data-theme="light"] h3,
+  html[data-theme="light"] h4,
+  html[data-theme="light"] h5,
+  html[data-theme="light"] h6 {
+    color: var(--heading);
+  }
+
+  /* ✅ Apply Green Hover to RSS */
+  html[data-theme="light"] a:hover,
+  html[data-theme="light"] .rss-link {
+    color: var(--accent);
+  }
+}
+
+.active-nav {
+  @apply underline decoration-wavy decoration-2 underline-offset-4;
+}

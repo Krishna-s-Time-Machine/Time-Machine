@@ -4,38 +4,57 @@ const primaryColorScheme = ""; // "light" | "dark"
 const currentTheme = localStorage.getItem("theme");
 
 function getPreferTheme() {
-  const now = new Date();
-  const hours = now.getHours();
+  // return theme value in local storage if it is set
+  if (currentTheme) return currentTheme;
 
-  // Auto-switch: Dark mode from 12 AM (00:00) to 5 AM (05:00)
-  if (hours >= 0 && hours < 5) {
-    return "dark";
-  }
+  // return primary color scheme if it is set
+  if (primaryColorScheme) return primaryColorScheme;
 
-  // Otherwise, light mode
-  return "light";
+  // return user device's prefer color scheme
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
-// Use stored theme if available, otherwise determine based on time
-let themeValue = currentTheme || getPreferTheme();
+let themeValue = getPreferTheme();
 
 function setPreference() {
   localStorage.setItem("theme", themeValue);
   reflectPreference();
-  document.dispatchEvent(new CustomEvent("theme-change", { detail: themeValue }));
 }
 
 function reflectPreference() {
   document.firstElementChild.setAttribute("data-theme", themeValue);
+
   document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
+
+  // Get a reference to the body element
+  const body = document.body;
+
+  // Check if the body element exists before using getComputedStyle
+  if (body) {
+    // Get the computed styles for the body element
+    const computedStyles = window.getComputedStyle(body);
+
+    // Get the background color property
+    const bgColor = computedStyles.backgroundColor;
+
+    // Set the background color in <meta theme-color ... />
+    document
+      .querySelector("meta[name='theme-color']")
+      ?.setAttribute("content", bgColor);
+  }
 }
 
-// Apply the preferred theme on load
+// set early so no page flashes / CSS is made aware
 reflectPreference();
 
 window.onload = () => {
   function setThemeFeature() {
+    // set on load so screen readers can get the latest value on the button
     reflectPreference();
+
+    // now this script can find and listen for clicks on the control
     document.querySelector("#theme-btn")?.addEventListener("click", () => {
       themeValue = themeValue === "light" ? "dark" : "light";
       setPreference();
@@ -43,11 +62,15 @@ window.onload = () => {
   }
 
   setThemeFeature();
+
+  // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", setThemeFeature);
 };
 
-// Sync with system changes
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches: isDark }) => {
-  themeValue = isDark ? "dark" : "light";
-  setPreference();
-});
+// sync with system changes
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", ({ matches: isDark }) => {
+    themeValue = isDark ? "dark" : "light";
+    setPreference();
+  });
