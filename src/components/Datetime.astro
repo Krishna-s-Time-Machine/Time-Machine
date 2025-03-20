@@ -15,37 +15,44 @@ const {
   class: className = "",
 } = Astro.props;
 
-/* ========== Formatted Datetime ========== */
+/* ========== Keep Given Datetime as It Is ========== */
 const myDatetime = new Date(
   modDatetime && modDatetime > pubDatetime ? modDatetime : pubDatetime
 );
-const date = myDatetime.toLocaleDateString(LOCALE.langTag, {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-});
 
-const time = myDatetime.toLocaleTimeString(LOCALE.langTag, {
+// Extract UTC parts to prevent local conversion
+const date = `${myDatetime.getUTCDate()} ${myDatetime.toLocaleString("en-US", {
+  month: "short",
+  timeZone: "UTC",
+})} ${myDatetime.getUTCFullYear()}`;
+
+// Format time in AM/PM without shifting to local time
+const time = myDatetime.toLocaleTimeString("en-US", {
   hour: "2-digit",
   minute: "2-digit",
+  hour12: true,
+  timeZone: "UTC",
 });
 ---
 
-<div class={`flex items-end space-x-2 opacity-80 ${className}`.trim()}>
+<div class={`flex items-center space-x-2 opacity-80 ${className}`.trim()}>
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
     class={`${
-      size === "sm" ? "scale-90" : "scale-100"
-    } inline-block h-6 w-6 min-w-[1.375rem] fill-foreground`}
+      size === "sm" ? "h-5 w-5 min-w-[1.25rem]" : "h-6 w-6 min-w-[1.375rem]"
+    } text-foreground`}
     aria-hidden="true"
   >
+    <path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path>
     <path
-      d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"
-    ></path>
-    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
       d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"
     ></path>
   </svg>
+
   {
     modDatetime && modDatetime > pubDatetime ? (
       <span
@@ -57,6 +64,7 @@ const time = myDatetime.toLocaleTimeString(LOCALE.langTag, {
       <span class="sr-only">Published:</span>
     )
   }
+
   <span class={`italic ${size === "sm" ? "text-sm" : "text-sm sm:text-base"}`}>
     <time datetime={myDatetime.toISOString()}>{date}</time>
     <span aria-hidden="true"> | </span>
